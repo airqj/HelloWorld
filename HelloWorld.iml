@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
     <orderEntry type="library" name="TarsosDSP-latest" level="project" />
+    <orderEntry type="library" name="colt" level="project" />
   </component>
 </module>

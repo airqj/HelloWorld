@@ -7,17 +7,18 @@ import java.io.File
 import java.util.Arrays
 
 import javax.sound.sampled.UnsupportedAudioFileException
+import javax.sound.sampled.spi.AudioFileReader
 
 class MFCCTest {
 
     //	private static int counter = 0;
-    fun CacularMFCC() {
+    fun CacularMFCC(fileName: String) {
         val sampleRate = 44100
         val bufferSize = 2205
         val bufferOverlap = 1102
-        val file = File("/home/qjb/SRC/notebook/data/test.txt")
+        val file = File(fileName + "_tarsos.csv")
         //val dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(sampleRate,bufferSize,bufferOverlap)
-        val dispatcher = AudioDispatcherFactory.fromFile(File("/home/qjb/SRC/notebook/data/gw.wav"),bufferSize,bufferOverlap)
+        val dispatcher = AudioDispatcherFactory.fromFile(File(fileName),bufferSize,bufferOverlap)
         //val mfcc = MFCC(bufferSize,sampleRate)
         val mfcc = MFCC(bufferSize, sampleRate.toFloat(), 39, 40, 133.3334f, sampleRate.toFloat() / 2f);
         dispatcher.addAudioProcessor(mfcc)
@@ -38,7 +39,7 @@ class MFCCTest {
 class HelloWorld {
     companion object {
         @JvmStatic fun main(args: Array<String>) {
-            MFCCTest().CacularMFCC()
+            MFCCTest().CacularMFCC(args[0])
             println("Kotlin main is running here!")
         }
     }
